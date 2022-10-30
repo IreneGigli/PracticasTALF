@@ -1,0 +1,60 @@
+\documentclass[11pt]{article}
+%Gummi|065|=)
+
+\usepackage[spanish]{babel}
+\usepackage[utf8]{inputenc}
+\usepackage{nccmath} 
+\usepackage{graphicx}
+\graphicspath{ {Imagen/} }
+
+\title{\textbf{Práctica 2}}
+\author{Irene Gigli García}
+\date{30/10/2022}
+
+\begin{document}
+
+\maketitle
+
+
+\section{Descripción del autómata}
+
+\begin{flushleft}
+El autómata finito determinista que genera únicamente la cadena $a$ sobre el alfabeto $\{a,b\}$ es dado por la 5-tupla $(K, \Sigma, \delta,s, F)$, tal que:
+\end{flushleft}
+
+$K = \{q_0, q_1, q_2\} $
+
+$\Sigma = \{a,b\}$
+
+$\delta = \{(q_0,a,q_1), (q_0,b,q_2), (q_1,a,q_2), (q_1,b,q_2), (q_2,a,q_2), (q_2,b,q_2)\}$
+
+$s = q_0$
+
+$F = \{q_1\}$
+
+\section{Autómata en JFLAP}
+
+\includegraphics{ImagenAutomata}
+
+\section{Descripción JSON}
+
+\begin{verbatim}
+{
+    "name" : "a",
+    "representation" : {
+      "K" : ["q0", "q1", "q2"],
+      "A" : ["a", "b"],
+      "s" : "q0",
+      "F" : ["q1"],
+      "t" : [["q0", "a", "q1"],
+             ["q0", "b", "q2"],
+             ["q1", "a", "q2"],
+             ["q1", "b", "q2"],
+             ["q2", "a", "q2"],
+             ["q2", "b", "q2"],
+      }
+}
+     
+\end{verbatim}
+
+\end{document}
