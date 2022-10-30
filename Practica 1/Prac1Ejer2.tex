@@ -22,7 +22,7 @@
 
 %Definimos el título
 \title{Teoría de Autómatas y Lenguajes Formales\\[.4\baselineskip]Práctica 1: Latex y expresiones regurales}
-\author{Nombre, Apellidos}
+\author{Irene Gigli García}
 \date{\today}
 
 %Comienzo del documento
@@ -65,12 +65,15 @@ Si $\alpha,\beta,\gamma$ son expresiones regulares entonces se cumple:
   (\alpha+\beta)\gamma=\alpha\gamma+\beta\gamma
   \end{equation}
 \end{proposicion}
+
 \begin{proof}
 Usando las reglas de la definición $\\L((\alpha\gamma))\cup L((\beta\gamma))=
 L((\alpha\gamma+\beta\gamma))$ tenemos que:
+
 \begin{multline*}
 \Lb(((\alpha+\beta)\gamma))=\Lb((\alpha+\beta))\Lb(\gamma)=(\Lb(\alpha)\cup \Lb(\beta))\Lb(\gamma)=\Lb(\alpha)\Lb(\gamma)\cup \Lb(\beta)\Lb(\gamma)=
 \end{multline*}
+
 \end{proof}
 
 \begin{example}
@@ -78,6 +81,5 @@ Consideremos $L=\{w\in \{a,b\}^* : w \textnormal{ no termina en } ab\}$. Un expr
  $$\epsilon + b + (a+b)^ *(a+bb)$$
 
 \end{example}
-
 
 \end{document}
