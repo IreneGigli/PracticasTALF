@@ -1,11 +1,10 @@
 \documentclass[11pt]{article}
 %Gummi|065|=)
 
-\usepackage[spanish]{babel}
 \usepackage[utf8]{inputenc}
-\usepackage{nccmath} 
+\usepackage{tikz}
+\usepackage{amsthm}
 \usepackage{graphicx}
-\graphicspath{ {Imagen/} }
 
 \title{\textbf{Práctica 2}}
 \author{Irene Gigli García}
@@ -32,9 +31,45 @@ $s = q_0$
 
 $F = \{q_1\}$
 
+\begin{example}
+\begin{flushleft}
+También podemos definirlo mediante una tabla y un diagrama:
+\end{flushleft}
+
+\begin{table}[h!]
+\begin{tabular}{c|c|c}
+  $\delta(q,\sigma)$ & $a$ & $b$\\
+  \hline
+  $q_0$& $q_1$ & $q_2$\\
+  \hline
+  $q_1$& $q_2$ & $q_2$\\
+  \hline
+  $q_2$& $q_2$ & $q_2$
+\end{tabular}
+\end{table}
+
+\begin{center}
+  \begin{tikzpicture}[auto,
+      shorten > = 1pt, 
+  node distance = 4cm and 3cm]
+  \node[state] (q0) {$q_0$};
+  \node[inner sep=0pt,outer sep=-1pt,left=0pt of q0.west]{$>$};
+  \node[state] (q1) [right of=q0] {$q_1$};
+  \node[state,accepting] (q2) [below of=q1] {$q_2$};
+  \path[->] (q0) edge ["$b$"] (q1)
+                 edge ["$b$"] (q2)
+            (q1) edge ["$a$"] (q2)
+            (q2) edge [loop right, "$a$"] ();
+  \end{tikzpicture}
+\end{center}
+\end{example}
+
 \section{Autómata en JFLAP}
 
-\includegraphics{ImagenAutomata}
+\begin{figure}[htp]
+    \centering
+    \includegraphics[width=14cm]{AutomataJFLAP.png}
+\end{figure}
 
 \section{Descripción JSON}
 
