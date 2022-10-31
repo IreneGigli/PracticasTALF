@@ -67,14 +67,17 @@ Si $\alpha,\beta,\gamma$ son expresiones regulares entonces se cumple:
 \end{proposicion}
 
 \begin{proof}
-Usando las reglas de la definición $\\L((\alpha\gamma))\cup L((\beta\gamma))=
-L((\alpha\gamma+\beta\gamma))$ tenemos que:
+Usando las reglas de la definición 1.1 tenemos que:
 
 \begin{multline*}
-\Lb(((\alpha+\beta)\gamma))=\Lb((\alpha+\beta))\Lb(\gamma)=(\Lb(\alpha)\cup \Lb(\beta))\Lb(\gamma)=\Lb(\alpha)\Lb(\gamma)\cup \Lb(\beta)\Lb(\gamma)=
+\Lb(((\alpha+\beta)\gamma))=\Lb((\alpha+\beta))\Lb(\gamma) =
+(\Lb(\alpha)\cup \Lb(\beta))\Lb(\gamma)=  \Lb(\alpha)\Lb(\gamma)\cup \Lb(\beta)\Lb(\gamma)=
+\\L((\alpha\gamma))\cup L((\beta\gamma))=
+L((\alpha\gamma+\beta\gamma))
 \end{multline*}
 
 \end{proof}
+
 
 \begin{example}
 Consideremos $L=\{w\in \{a,b\}^* : w \textnormal{ no termina en } ab\}$. Un expresión regular que genera L es: \\
