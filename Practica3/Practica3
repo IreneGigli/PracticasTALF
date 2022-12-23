@@ -1,0 +1,97 @@
+\documentclass[11pt]{article}
+%Gummi|065|=)
+
+\usepackage[utf8]{inputenc}
+\usepackage[spanish]{babel}
+\usepackage{amsthm, amsmath}
+\usepackage{nccmath} %Para centrar ecuaciones
+\usepackage{float}
+\usepackage{graphicx}
+\usepackage{enumitem}
+\usepackage{calrsfs}
+\usepackage[colorlinks=true,linkcolor=blue]{hyperref} 
+\usepackage{amssymb}
+\usepackage{whilecode2}
+
+\title{\textbf{Práctica 3}}
+\author{Irene Gigli García}
+\date{\today}
+
+\begin{document}
+
+\maketitle
+
+\section{Máquina de Turing}
+
+\begin{flushleft}
+Definimos una máquina de Turing que ejecute la función $add(x,y)=x+y$ usando la notación unaria. Esta máquina suma dos números separados por el símbolo * y termina detrás de la cadena.
+\end{flushleft}
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=2\textwidth,height=0.3\paperheight,keepaspectratio]{MTadd}
+\caption{Función add en máquina de Turing}
+\label{Máquina de Turing}
+\end{figure}
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=0.7\textwidth,height=0.5\paperheight,keepaspectratio]{MTprueba}
+\caption{Resultado al introducir $||*|||$ en la MT}
+\label{fig:Add}
+\end{figure}
+
+\begin{flushleft}
+    En la \autoref{fig:Add} vemos que si introducimos los números 1 y 2 la máquina devuelve 3 y que, efectivamente, se para tras la cadena. Debemos recordar que en notación unaria $0 = |, 1 = ||, 2 = |||, 3 = ||||$, etcétera. Es decir, se cada número se corresponde con el mismo número de $|$ más uno.
+\end{flushleft}
+
+\section{Función recursiva}
+
+\begin{flushleft}
+    Definimos la función recursiva que suma tres valores utilizando la recursión primitiva y las funciones cero, sucesor y proyección.
+\end{flushleft}
+
+\begin{center}
+$add3(x,y,z) = x+y+z$
+\end{center}
+
+\begin{center}
+$add3 = < < \sigma(\sigma(\sigma(\theta))) | \pi^2_2> | \pi^3_3>$
+\end{center}
+
+\begin{flushleft}
+    Al ejecutar el comando en Octave nos devuelve la misma definición de la función, como vemos en la \autoref{fig:Rec}.
+\end{flushleft}
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=0.75\textwidth,height=0.25\paperheight,keepaspectratio]{recursiveexpression}
+\caption{Suma de 3 valores}
+\label{fig:Rec}
+\end{figure}
+
+\vspace{1cm}
+
+\section{Programa WHILE}
+
+\begin{flushleft}
+    Implementamos un programa WHILE que computa la suma de 3 valores y utiliza una variable auxiliar que acumula el valor de la suma
+\end{flushleft}
+
+\whileprogram{suma}{3,4}{
+\Copy{\Var{$X_4$}}{\Var{$X_1$}}
+
+\WhileSC{\Var{$X_2$}$\neq0$}
+{
+    \Incr{\Var{$X_4$}}{1}
+    \Decr{\Var{$X_2$}}{1}
+}
+\WhileSC{\Var{$X_3$}$\neq0$}
+{
+    \Incr{\Var{$X_4$}}{1}
+    \Decr{\Var{$X_3$}}{1}
+}
+\Copy*{\Var{$X_1$}}{\Var{$X_4$}}
+}{s}
+
+\end{document}
