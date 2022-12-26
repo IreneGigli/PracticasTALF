@@ -1,0 +1,95 @@
+\documentclass[11pt]{article}
+%Gummi|065|=)
+
+\usepackage[utf8]{inputenc}
+\usepackage[spanish]{babel}
+\usepackage{amsthm, amsmath}
+\usepackage{nccmath} %Para centrar ecuaciones
+\usepackage{float}
+\usepackage{graphicx}
+\usepackage{enumitem}
+\usepackage{calrsfs}
+\usepackage[colorlinks=true,linkcolor=blue]{hyperref} 
+\usepackage{amssymb}
+\usepackage{whilecode2}
+
+\title{\textbf{Práctica 4}}
+\author{Irene Gigli García}
+\date{\today}
+
+\begin{document}
+
+\maketitle
+
+\section{Programa WHILE}
+
+\begin{flushleft}
+El programa WHILE más simple y sin argumentos que computa la función que diverge es el siguiente: 
+\end{flushleft}
+
+\whileprogram{Q}{0}{
+\Incr{\Var{$X_2$}}{1}
+
+\WhileSC{\Var{$X_2$}$\neq0$}
+{
+    \Zero*{\Var{$X_1$}}
+}
+}{s}
+
+\begin{flushleft}
+    La codificación de este código esla siguiente, y en la \autoref{fig:Code2n} podemos ver su ejecución en Octave:
+\end{flushleft}
+
+\begin{verbatim}
+    > CODE2N("X2:=X1+1; while X2!=0 do X1:=0 od")
+    ans = 10876
+\end{verbatim}
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=0.8\textwidth,height=0.5\paperheight,keepaspectratio]{code2n}
+\caption{Ejecución del código en Octave}
+\label{fig:Code2n}
+\end{figure}
+
+\section{Enumeración de vectores}
+
+\begin{flushleft}
+    Establecemos una biyección entre todos los vectores y $\mathbb N$, por lo que necesitaremos un programa con un bucle que pueda mostrar todos los vectores. El siguiente código muestra los N primeros vectores, y en la \autoref{fig:PrintN} podemos ver su ejecución en Octave:
+\end{flushleft}
+
+\begin{verbatim}
+    function printNvectors(N)
+        for i=0:N-1
+            disp(['(' num2str(godeldecoding(i)) ')'])
+        end
+    end
+
+\end{verbatim}  
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=0.3\textwidth,height=0.5\paperheight,keepaspectratio]{printN.png}
+\caption{Ejecución del código en Octave}
+\label{fig:PrintN}
+\end{figure}
+
+\vspace{10cm}
+
+\section{Enumeración de programas WHILE}
+
+\begin{flushleft}
+    En este caso también podemos establecer una biyección entre $\mathbb N$ y los programas WHILE, por lo que el código es similar al del apartado anterior. De la misma forma, en la imagen inferior podemos ver la ejecución en Octave.
+\end{flushleft}
+
+\begin{verbatim}
+    function printNwhilePrograms(N)
+        for i=0:N-1
+            disp(N2WHILE(i))
+        end
+    end
+\end{verbatim}
+
+\includegraphics[scale=1.5]{printNwhileP.png}
+
+\end{document}
